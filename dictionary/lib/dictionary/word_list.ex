@@ -1,10 +1,10 @@
 defmodule Dictionary.WordList do
 
   def start_link() do
-    Agent.start_link(&word_list/0)
+    Agent.start_link(&word_list/0, name: :fred)
   end
-  def random_word(agent) do
-    Agent.get(agent,&Enum.random/1)
+  def random_word() do
+    Agent.get(:fred, &Enum.random/1)
   end
 
   def word_list do
