@@ -1,6 +1,15 @@
 defmodule Procs do
-  def greeter(name) do
-    Process.sleep(1000)
-    IO.puts "Hello #{name}"
+  def greeter(count) do
+    receive do
+      {:boom, reason} ->
+          exit(reason)
+      {:add, n} ->
+        greeter(count+n)
+      {:reset} ->
+        greeter(0)
+      msg ->
+        IO.puts " #{count}: Hello #{ inspect msg}"
+    end
+    greeter(count+2)
   end
 end
