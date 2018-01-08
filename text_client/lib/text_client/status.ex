@@ -1,4 +1,4 @@
-defmodule TextClient.Summary1 do
+defmodule TextClient.Summary do
   alias TextClient.State
   def display(game = %{ tally: tally }) do
     IO.puts [

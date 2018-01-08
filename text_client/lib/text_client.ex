@@ -1,3 +1,5 @@
 defmodule TextClient do
-  defdelegate start(), to: TextClient.Interact
+  def start() do
+  TextClient.Interact.start()
+  end
 end
